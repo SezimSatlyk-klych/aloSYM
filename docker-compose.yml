@@ -36,12 +36,16 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    command: >
-      sh -c "echo 'Waiting for DB...' && \
-      while ! nc -z db 5432; do sleep 0.2; done; \
-      echo 'Database is up!' && \
-      python manage.py migrate --noinput && \
-      python manage.py runserver 0.0.0.0:8000"
+    command: |
+      sh -c "
+      echo 'Waiting for DB...'
+      while ! nc -z db 5432; do
+        sleep 0.2
+      done
+      echo 'Database is up!'
+      python manage.py migrate --noinput
+      python manage.py runserver 0.0.0.0:8000
+      "
 
 volumes:
   postgres_data:
