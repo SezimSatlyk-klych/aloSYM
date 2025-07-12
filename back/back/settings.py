@@ -157,19 +157,24 @@ SIMPLE_JWT = {
 }
 
 # CORS settings for Chrome extension
-CORS_ALLOW_ALL_ORIGINS = True  # For development only
+# CORS settings for Chrome extension and frontend
+CORS_ALLOW_ALL_ORIGINS = False  # отключаем, чтобы использовать CORS_ALLOWED_ORIGINS
 CORS_ALLOW_CREDENTIALS = True
+
 CORS_ALLOWED_ORIGINS = [
-    "chrome-extension://*",
+    "chrome-extension://oggjhglkgaeichocgelifibgdhklmnbb",
+    "https://vimoai.site",
+    "https://www.vimoai.site",
 ]
+
 CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
 ]
